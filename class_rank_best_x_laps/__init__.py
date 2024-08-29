@@ -17,7 +17,7 @@ def rank_best_laps(rhapi, race_class, args):
 
     race_format = rhapi.db.raceformat_by_id(race_class.format_id)
     heats = rhapi.db.heats_by_class(race_class.id)
-    time_format = rhapi.db.option('timeFormat')
+    time_format = rhapi.config.get_item('UI', 'timeFormat')
 
     combined_laps = {}
     for heat in heats:
