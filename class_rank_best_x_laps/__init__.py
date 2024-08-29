@@ -33,9 +33,10 @@ def rank_best_laps(rhapi, race_class, args):
                 start_lap = 2 if race_format and race_format.start_behavior == StartBehavior.STAGGERED else 1
     
                 laps = rhapi.db.laps_by_pilotrun(run.id)
+                # Remove all "deleted" laps, we don't need them
+                laps = [x for x in laps if not x.deleted]
                 for lap in laps[start_lap:]:
-                    if not lap.deleted:
-                        combined_laps[run.pilot_id].append(lap)
+                    combined_laps[run.pilot_id].append(lap)
 
     leaderboard = []
     for pilot_id, laps in combined_laps.items():
