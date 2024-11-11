@@ -17,7 +17,6 @@ def rank_best_laps(rhapi, race_class, args):
 
     race_format = rhapi.db.raceformat_by_id(race_class.format_id)
     heats = rhapi.db.heats_by_class(race_class.id)
-    time_format = rhapi.db.option('timeFormat')
 
     combined_laps = {}
     for heat in heats:
@@ -56,7 +55,7 @@ def rank_best_laps(rhapi, race_class, args):
                 new_pilot_result['total_time_laps_raw'] = sum(l.lap_time for l in laps)
                 new_pilot_result['avg_time_laps_raw'] = int(new_pilot_result['total_time_laps_raw'] / float(len(laps)))
                 new_pilot_result['laps_base'] = len(laps)
-                new_pilot_result['avg_time_laps'] = RHUtils.time_format(new_pilot_result['avg_time_laps_raw'], time_format)
+                new_pilot_result['avg_time_laps'] = rhapi.utils.format_time_to_str(new_pilot_result['avg_time_laps_raw'])
 
                 leaderboard.append(new_pilot_result)
 
