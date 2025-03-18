@@ -58,6 +58,8 @@ def rank_best_laps(rhapi, race_class, args):
                 new_pilot_result['total_time_laps'] = rhapi.utils.format_time_to_str(new_pilot_result['total_time_laps_raw'])
                 new_pilot_result['avg_time_laps'] = rhapi.utils.format_time_to_str(new_pilot_result['avg_time_laps_raw'])
 
+                new_pilot_result['total_time__based'] = \
+                    f"{new_pilot_result['laps_base']}/{new_pilot_result['total_time_laps']}"
                 leaderboard.append(new_pilot_result)
 
     leaderboard = sorted(leaderboard, key = lambda x: (
@@ -80,16 +82,15 @@ def rank_best_laps(rhapi, race_class, args):
 
     meta = {
         'method_label': F"Best {lap_limit} Laps",
-        'rank_fields': [{
-            'name': 'total_time_laps',
-            'label': "Sum"
-        }, {
-            'name': 'avg_time_laps',
-            'label': F"Lap Average"
-        }, {
-            'name': 'laps_base',
-            'label': "Laps (base)"
-        }]
+        'rank_fields': [
+            {
+                'name': 'total_time__based',
+                'label': "Base/Total"
+            }, {
+                'name': 'avg_time_laps',
+                'label': F"Lap Average"
+            }
+        ]
     }
 
     return leaderboard, meta

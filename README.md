@@ -1,11 +1,11 @@
 # RotorHazard Class Rank: Best X Laps
 "Best X Laps (Average)" class ranking plugin for RotorHazard
 
+Ranks pilots according to the best X laps recorded across the entire class. Pilots not reaching X total laps are ranked by number of laps completed and then by time.
+
 ## Installation
 
-Copy the `class_rank_best_x_laps` plugin into the `src/server/plugins` directory in your RotorHazard install. Start RotorHazard.
-
-If installation is successful, the RotorHazard log will contain the message `Loaded plugin module class_rank_best_x_laps` at startup.
+Install through the "Community Plugins" area within RotorHazard. Alternately, or for earlier versions, copy the `class_rank_best_x_laps` directory from inside `custom_plugins` into the plugins directory of your RotorHazard data directory.
 
 ## Usage
 
