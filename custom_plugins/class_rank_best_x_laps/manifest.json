@@ -3,12 +3,10 @@
     "name": "Class Rank: Best X Laps",
     "author": "Michael Niggel",
     "author_uri": "https://hazardcreative.com",
-    "category": ["Class Rankings"],
     "description": "Adds a \"Best X Laps (Average)\" class ranking method",
     "documentation_uri": "https://github.com/HazardCreative/RotorHazard-Class-Rank-Best-X-Laps",
-    "info_uri": "https://github.com/HazardCreative/RotorHazard-Class-Rank-Best-X-Laps",
     "license": "RotorHazard",
     "license_uri": "https://github.com/RotorHazard/RotorHazard/blob/main/LICENSE",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "required_rhapi_version": "1.2"
 }
